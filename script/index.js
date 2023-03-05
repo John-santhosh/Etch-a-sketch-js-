@@ -5,10 +5,12 @@ let range = document.querySelector('#range')
 let colorPlate = document.querySelector("#colorPalate");
 let clearBtn = document.querySelector('#clearBtn')
 let displayRange = document.querySelector("#range-val");
+let rainBow = document.querySelector('.rainbow')
+let getClr = document.querySelectorAll(".getclr");
 
 range.addEventListener('click',function(){
     // displaying the range value dynamically 
-    displayRange.textContent = range.value;
+    displayRange.textContent = `${range.value} * ${range.value}`;
 
     // clearing previous board 
     clearChildren();
@@ -32,14 +34,40 @@ range.addEventListener('click',function(){
     // calling mouse trail method 
     let hovering = document.querySelectorAll('.check')
     hovering.forEach(child=>{
-        child.addEventListener("mouseenter", mouseTrail);
+        child.addEventListener("mouseenter",generateRainbow)
     })
 })
 
-//adding mouse trail effect 
+// function setColor(){
+//     child.style.background = colorPlate.value;
+// child.style.background = colorPlate.value;
+//             getClr.forEach((a) =>
+//                 a.addEventListener("click", (e) => {
+//                 let color = e.target.name;
+//                 let random = Math.floor(Math.random() * 255);
+//             if (color === "rainbow")
+//                 return (child.style.background = `hsl(${random},100%,50%)`);
+//             else if (color === "palate")
+//                 return (child.style.background = colorPlate.value);
+//     })
+//   );
+//         });
+//   })
+// )
+// }
+
+
+//adding mouse trail effect / setting color
 function mouseTrail(){
     // Here <this> refer the <child> from forEach 
     this.style.background=colorPlate.value
+}
+
+// generating rainbow colors
+function generateRainbow(){
+    let random = Math.floor(Math.random() * 255);
+    this.style.background=`hsl(${random},100%,50%)`
+//   return `hsl(${random},100%,50%)`;
 }
 
 // clearing out the container
