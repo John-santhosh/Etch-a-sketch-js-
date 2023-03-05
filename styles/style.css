@@ -14,7 +14,8 @@ body{
 .check{
     background: var(--white);
     background-clip: content-box;
-    box-shadow:var(--shade-2)
+    box-shadow:var(--shade-2);
+    transition: background .5s;
 }
 .main{
     width: var(--size);

@@ -7,7 +7,7 @@ let clearBtn = document.querySelector('#clearBtn')
 let displayRange = document.querySelector("#range-val");
 let rainBow = document.querySelector('.rainbow')
 let getClr = document.querySelectorAll(".getclr");
-
+let color = mouseTrail;
 range.addEventListener('click',function(){
     // displaying the range value dynamically 
     displayRange.textContent = `${range.value} * ${range.value}`;
@@ -34,40 +34,31 @@ range.addEventListener('click',function(){
     // calling mouse trail method 
     let hovering = document.querySelectorAll('.check')
     hovering.forEach(child=>{
-        child.addEventListener("mouseenter",generateRainbow)
+        child.addEventListener("mouseenter",color)
     })
 })
 
-// function setColor(){
-//     child.style.background = colorPlate.value;
-// child.style.background = colorPlate.value;
-//             getClr.forEach((a) =>
-//                 a.addEventListener("click", (e) => {
-//                 let color = e.target.name;
-//                 let random = Math.floor(Math.random() * 255);
-//             if (color === "rainbow")
-//                 return (child.style.background = `hsl(${random},100%,50%)`);
-//             else if (color === "palate")
-//                 return (child.style.background = colorPlate.value);
-//     })
-//   );
-//         });
-//   })
-// )
-// }
+rainBow.addEventListener('click',function(){color= generateRainbow})
+colorPlate.addEventListener('click',function(){color=mouseTrail})
 
 
 //adding mouse trail effect / setting color
 function mouseTrail(){
     // Here <this> refer the <child> from forEach 
     this.style.background=colorPlate.value
+    // return colorPlate.value;
 }
+
+//Generating  random number 
+function rand(){
+    return Math.floor(Math.random() * 255);
+}
+
 
 // generating rainbow colors
 function generateRainbow(){
-    let random = Math.floor(Math.random() * 255);
-    this.style.background=`hsl(${random},100%,50%)`
-//   return `hsl(${random},100%,50%)`;
+    this.style.background = `rgb(${rand()},${rand()},${rand()})`;
+//   return `rgb(${rand()},${rand()},${rand()})`;
 }
 
 // clearing out the container
