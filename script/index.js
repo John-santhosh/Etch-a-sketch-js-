@@ -7,17 +7,34 @@ let clearBtn = document.querySelector('#clearBtn')
 let displayRange = document.querySelector("#range-val");
 let rainBow = document.querySelector('.rainbow')
 let getClr = document.querySelectorAll(".getclr");
-let color = mouseTrail;
-range.addEventListener('click',function(){
+let palateColor= document.querySelector('.palateColor')
+
+// Changing user preferred colors 
+let color = generateRainbow;
+
+// clearing previous grids when range is clicked 
+range.addEventListener('click',()=> clearChildren())
+
+// creating new grids when range is clicked 
+range.addEventListener('click',functionMain)
+
+// creating colors
+range.addEventListener('click', createColors)
+function createColors(){
+        // calling mouse trail method 
+        console.log(color)
+        let hovering = document.querySelectorAll('.check')
+        hovering.forEach(child=>{
+        child.addEventListener("mouseenter",color)
+    })
+}
+
+function functionMain(){
     // displaying the range value dynamically 
     displayRange.textContent = `${range.value} * ${range.value}`;
-
-    // clearing previous board 
-    clearChildren();
-
+    
     // getting the limit of the grids 
     let grid = range.value; ;
-    // limit.value="";
 
     // considering resources and memory limiting the total grids upto 30*30
     if(grid>30) return alert("maximum limit : 30")
@@ -30,16 +47,21 @@ range.addEventListener('click',function(){
     parentGrid.style.gridTemplateRows = `repeat(${grid} , 1fr)`;
     parentGrid.appendChild(div)
     }
+}
 
-    // calling mouse trail method 
-    let hovering = document.querySelectorAll('.check')
-    hovering.forEach(child=>{
-        child.addEventListener("mouseenter",color)
-    })
+colorPlate.addEventListener('click',function(){
+    color= mouseTrail;
+    // range.value = 0; 
+    createColors();
+    // console.log("mouse")
 })
 
-rainBow.addEventListener('click',function(){color= generateRainbow})
-colorPlate.addEventListener('click',function(){color=mouseTrail})
+rainBow.addEventListener('click',function(){
+    color= generateRainbow;
+    // range.value = 0;
+    createColors();
+    // console.log('rainbow')
+})
 
 
 //adding mouse trail effect / setting color
@@ -49,22 +71,21 @@ function mouseTrail(){
     // return colorPlate.value;
 }
 
-//Generating  random number 
-function rand(){
-    return Math.floor(Math.random() * 255);
-}
-
-
 // generating rainbow colors
 function generateRainbow(){
     this.style.background = `rgb(${rand()},${rand()},${rand()})`;
 //   return `rgb(${rand()},${rand()},${rand()})`;
 }
 
+//Generating  random number 
+function rand(){
+    return Math.floor(Math.random() * 255);
+}
+
 // clearing out the container
 function clearChildren(){
     let child = parentGrid.children;
-    Array.from(child).forEach(a=>parentGrid.removeChild(a))
+    Array.from(child).forEach(a=>parentGrid.removeChild(a));
 }
 
 clearBtn.addEventListener('click',clearChildren)
