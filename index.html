@@ -1,52 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="etch a sketch app using bootstrap and javascript">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="etch a sketch app using bootstrap and javascript"
+    />
     <!-- bootstrap css CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
     <title>Etch a sketch app</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <div class="container  ">
-        <h1 class="text-center mb-5">Etch a sketch</h1>
-        <div class="row align-items-center ">
-            <div class="m-auto p-0 col-12 order-xl-1 main row">
-                
-                <!-- grids -->
-                <div class=" parent ">
-                <!-- grid rows and columns goes here -->
-                </div>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center mb-5">Etch a sketch</h1>
+      <div class="row align-items-center">
+        <div class="m-auto p-0 col-12 order-xl-1 main row">
+          <!-- grids -->
+          <div class="parent">
+            <!-- grid rows and columns goes here -->
+          </div>
 
-                <!-- actions -->
-                <div class="my-5 row justify-content-center">
-                    <span id="range-val" class="col-8 text-center mb-4">0</span>
-                    <input class="col-8" type="range" name="" id="range" value="0" min="0" max="30">
-                </div>
-
-                <div class="col-12  row justify-content-around text-center">                    
-                    <div class="col-4 circle row align-items-center">
-                        <button class="rainbow getclr " name="rainbow">rainbow</button>
-                    </div>
-
-                    <div class="col-4 circle row align-items-center">
-                        <button id="clearBtn">clear</button>
-                    </div>
-
-                    <div class="col-4 circle p-0 position-relative">
-                        <button class="position-absolute start-50 top-50 palateColor ">color</button>
-                        <input type="color" class="getclr " value="#73d37a" name="palate" id="colorPalate">
-                    </div>
-                    
-                </div>
-
+          <!-- actions -->
+          <div class="my-5 row justify-content-center align-items-end">
+            <div class="col-4 row align-items-center">
+              <button id="clearBtn" class="w-50 ms-auto">Clear</button>
             </div>
+            <div class="col-7 justify-content-center">
+              <input
+                class="w-75"
+                type="range"
+                name=""
+                id="range"
+                value="0"
+                min="0"
+                max="30"
+              />
+              <span id="range-val" class="text-center mb-4">0</span>
+            </div>
+          </div>
+
+          <div
+            class="col-12 row justify-content-evenly align-items-center text-center"
+          >
+            <div class="col-4">
+              <!-- <div class=" align-items-center"></div> -->
+              <img
+                src="colorpicker2000.png"
+                class="m-auto rainbow row"
+                alt=""
+              />
+              <p class="mt-2">Rainbow</p>
+            </div>
+
+            <div class="col-4 p-0 position-relative">
+              <div class="picker">
+                <input
+                  type="color"
+                  value="#73d37a"
+                  name="palate"
+                  id="colorPalate"
+                />
+                <!--  -->
+              </div>
+              <p class="mt-2">Color Picker</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- bootstrap js cdn  -->
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"
+      ></script>
+      <script src="script/index.js"></script>
     </div>
-    <!-- bootstrap js cdn  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="script/index.js"></script>
-</body>
+  </body>
 </html>

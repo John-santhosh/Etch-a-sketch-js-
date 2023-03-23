@@ -1,80 +1,92 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-:root{
-    --white :  rgb(255, 255, 255);
-    --shade-1: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    --shade-2: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-    --size: 660px;
+:root {
+  --white: rgb(255, 255, 255);
+  --shade-1: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  --shade-2: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  --size: 660px;
 }
-body{
-    background-color: rgb(218, 218, 218);
+body {
+  background-color: rgb(218, 218, 218);
+}
+.check {
+  background: var(--white);
+  background-clip: content-box;
+  box-shadow: var(--shade-2);
+  transition: background 0.5s;
+}
+.main {
+  width: var(--size);
+  min-height: var(--size);
+}
+.parent {
+  background: var(--white);
+  box-shadow: var(--shade-1);
+  width: var(--size);
+  min-height: var(--size);
+  display: grid;
+  border: 1rem solid rgb(237, 237, 237);
+  padding: 0;
+}
 
+/* ranger group */
+.ranger-grp {
+  background-color: red;
 }
-.check{
-    background: var(--white);
-    background-clip: content-box;
-    box-shadow:var(--shade-2);
-    transition: background .5s;
-}
-.main{
-    width: var(--size);
-    min-height: var(--size);
-}
-.parent{
-    background: var(--white);
-    box-shadow: var(--shade-1);
-    width: var(--size);
-    min-height: var(--size);
-    display: grid;
-    border: 1rem solid rgb(237, 237, 237);
-    padding: 0 ;
-}
+
 /* button actions */
-#clearBtn,.rainbow{
-    background: transparent;;
+
+.rainbow {
+  background: transparent;
+  cursor: pointer;
 }
-.circle{
-    background-color: #73d37a;
-    border-radius: 25%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px; 
+#clearBtn {
+  background-color: rgb(228, 170, 170);
+  border-radius: 1rem;
 }
-[type="color"]{
-    width: 100px;
-    height: 100px; 
-    background-color: transparent;
-    border: none;
+
+.picker {
+  height: 70px;
+}
+[type="color"] {
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 /* a non standard method for the appearance of input:color */
-[type="color"]::-webkit-color-swatch{
-    border-radius: 25%;
-    border: none;
+[type="color"]::-webkit-color-swatch {
+  border-radius: 25%;
+  border: none;
 }
 
-button{
-    border: transparent;
-    outline: none;
+button {
+  border: transparent;
+  outline: none;
 }
 
-@media only screen and (max-width: 330px){
-    :root{
-        --size: 300px;
-    }
+@media only screen and (max-width: 330px) {
+  :root {
+    --size: 300px;
+  }
 }
-@media only screen and (min-width: 330px){
-    :root{
-        --size: 375px;
-    }
+@media only screen and (min-width: 330px) {
+  :root {
+    --size: 375px;
+  }
 }
-@media only screen and (min-width: 576px){
-    :root{
-        --size: 556px;
-    }
+@media only screen and (min-width: 576px) {
+  :root {
+    --size: 556px;
+  }
 }
-@media only screen and (min-width: 768px){
-    :root{
-        --size: 660px;
-    }
+@media only screen and (min-width: 768px) {
+  :root {
+    --size: 660px;
+  }
 }
