@@ -9,24 +9,20 @@ let rainBow = document.querySelector(".rainbow");
 let getClr = document.querySelectorAll(".getclr");
 let palateColor = document.querySelector(".palateColor");
 
-// Changing user preferred colors
-
 // clearing previous grids when range is clicked
 range.addEventListener("click", () => clearChildren());
 
 // creating new grids when range is clicked
 range.addEventListener("click", functionMain);
 
-// creating colors
-range.addEventListener("click", createColors);
-let color = generateRainbow;
-
 function createColors() {
   // calling mouse trail method
   console.log(color);
   let hovering = document.querySelectorAll(".check");
   hovering.forEach((child) => {
-    child.addEventListener("mouseover", color);
+    child.addEventListener("mouseover", (e) => {
+      e.target.style.background = generateColor();
+    });
   });
 }
 
@@ -37,7 +33,7 @@ function functionMain() {
   // getting the limit of the grids
   let grid = range.value;
 
-  // considering resources and memory limiting the total grids upto 30*30
+  // considering resources and memory, Limiting the total grids upto 30*30
   if (grid > 30) return alert("maximum limit : 30");
 
   // creating grid children
@@ -48,33 +44,25 @@ function functionMain() {
     parentGrid.style.gridTemplateRows = `repeat(${grid} , 1fr)`;
     parentGrid.appendChild(div);
   }
+  createColors();
 }
 
-colorPlate.addEventListener("click", function () {
-  color = mouseTrail;
-  // range.value = 0;
-  createColors();
-  // console.log("mouse")
+let color = "rainbow";
+colorPlate.addEventListener("click", () => {
+  color = "palate";
 });
 
 rainBow.addEventListener("click", function () {
-  color = generateRainbow;
-  // range.value = 0;
-  createColors();
-  // console.log('rainbow')
+  color = "rainbow";
 });
 
-//adding mouse trail effect / setting color
-function mouseTrail() {
-  // Here <this> refer the <child> from forEach
-  this.style.background = colorPlate.value;
-  // return colorPlate.value;
-}
-
-// generating rainbow colors
-function generateRainbow() {
-  this.style.background = `rgb(${rand()},${rand()},${rand()})`;
-  //   return `rgb(${rand()},${rand()},${rand()})`;
+// generating  colors
+function generateColor() {
+  if (color == "rainbow") {
+    return `rgb(${rand()},${rand()},${rand()})`;
+  } else if (color == "palate") {
+    return colorPlate.value;
+  }
 }
 
 //Generating  random number
